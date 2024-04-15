@@ -5,8 +5,8 @@ from ttkbootstrap import Style
 from ControlUnit import ControlUnit
 import time
 
-def background_app(cud, cu):
 
+def background_app(cud, cu):
     pm = cu.get_pm()
     htp = cu.get_htp()
 
@@ -19,7 +19,6 @@ def background_app(cud, cu):
 
     cud.set_gps("Non2")
     App.after(500, background_app, cud, cu)
-    #print(time.time())
 
 
 class CU_Data:
@@ -143,7 +142,6 @@ class MainWindowApp(ttk.Frame):
         self.update()
 
     def update(self):
-
         self.label_pm10.configure(text=self.cud.get_pm10())
         self.label_pm2p5.configure(text=self.cud.get_pm2p5())
 
@@ -153,12 +151,11 @@ class MainWindowApp(ttk.Frame):
 
         self.label_gps.configure(text=self.cud.get_gps())
 
-
         self.after(1000, self.update)
 
 
 class Window(tk.Tk):
-    def __init__(self,cud, *args, **kwargs):
+    def __init__(self, cud, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
         # self.after(0, background_app)
         self.wm_title("Test Application")
@@ -172,5 +169,5 @@ if __name__ == "__main__":
     cu = ControlUnit("192.168.1.5")
 
     App = Window(cud)
-    App.after(1000, background_app, cud,cu)
+    App.after(1000, background_app, cud, cu)
     App.mainloop()

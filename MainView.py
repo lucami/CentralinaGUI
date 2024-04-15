@@ -143,21 +143,6 @@ class MainWindowApp(ttk.Frame):
         self.update()
 
     def update(self):
-        '''
-        pm = self.cud.get_pm()
-        pm2p5 = pm[0]
-        pm10 = pm[1]
-        self.label_pm10.configure(text=pm2p5)
-        self.label_pm2p5.configure(text=pm10)
-
-
-        htp = self.cud.get_htp()
-        self.label_t.configure(text=htp[0])
-        self.label_p.configure(text=htp[2])
-        self.label_h.configure(text=htp[1])
-
-        self.label_gps.configure(text="None")
-        '''
 
         self.label_pm10.configure(text=self.cud.get_pm10())
         self.label_pm2p5.configure(text=self.cud.get_pm2p5())
@@ -168,18 +153,7 @@ class MainWindowApp(ttk.Frame):
 
         self.label_gps.configure(text=self.cud.get_gps())
 
-        '''
-        self.counter += 1
 
-        self.cud.set_pm10(self.counter)
-        self.cud.set_pm2p5(self.counter)
-
-        self.cud.set_t(self.counter)
-        self.cud.set_p(self.counter)
-        self.cud.set_h(self.counter)
-
-        self.cud.set_gps(self.counter)
-        '''
         self.after(1000, self.update)
 
 
